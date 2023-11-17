@@ -121,6 +121,3 @@ def can_double_down(card_one, card_two):
         return True
     else:
         return False 
-
-
-
