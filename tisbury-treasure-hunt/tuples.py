@@ -7,8 +7,8 @@ def get_coordinate(record):
     :param record: tuple - with a (treasure, coordinate) pair.
     :return: str - the extracted map coordinate.
     """
-
-    pass
+    return record[1]
+    
 
 
 def convert_coordinate(coordinate):
@@ -18,7 +18,7 @@ def convert_coordinate(coordinate):
     :return: tuple - the string coordinate split into its individual components.
     """
 
-    pass
+    return tuple(coordinate)
 
 
 def compare_records(azara_record, rui_record):
@@ -29,7 +29,8 @@ def compare_records(azara_record, rui_record):
     :return: bool - do the coordinates match?
     """
 
-    pass
+    azara_tuple = tuple(azara_record[1])
+    return azara_tuple == rui_record[1]
 
 
 def create_record(azara_record, rui_record):
@@ -39,8 +40,10 @@ def create_record(azara_record, rui_record):
     :param rui_record: tuple - a (location, coordinate, quadrant) trio.
     :return: tuple or str - the combined record (if compatible), or the string "not a match" (if incompatible).
     """
-
-    pass
+    if compare_records(azara_record, rui_record):
+        return azara_record + rui_record
+    else:
+        return "not a match"
 
 
 def clean_up(combined_record_group):
@@ -53,5 +56,9 @@ def clean_up(combined_record_group):
 
     (see HINTS.md for an example).
     """
-
-    pass
+    output=""
+    for record in combined_record_group: 
+        line = f'{record}\n'
+        output += line
+    print(f"""{output}""")
+    return f"""{output}"""
